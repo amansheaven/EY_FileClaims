@@ -1,0 +1,31 @@
+Some models are not the part of the respository because of the size constraints
+
+Downlaod this file from  https://drive.google.com/file/d/1ZArKaR2HfY_319A7WUAVRSU7KO8E5klE/view?usp=sharing
+
+and place the same under app/static/models
+ 
+and change the name from "weights.npz" to "numplate_det.npz"
+
+after downloadin models directory should be something like this:
+
+(jupyter) aman@aman:~/Desktop/rese/dep/app/static/models$ tree
+.
+|-- dl_detector
+|   `-- detect_dl.py
+|-- files
+|   |-- __pycache__
+|   |   |-- common.cpython-36.pyc
+|   |   `-- model.cpython-36.pyc
+|   |-- common.py
+|   `-- model.py
+|-- finalized_model.sav
+|-- numplate_det.npz
+`-- pan_detector
+    |-- __pycache__
+    |   `-- detect_card.cpython-36.pyc
+    `-- detect_card.py
+
+5 directories, 9 files
+
+
+where the numplate_det.npz is the model you downloaded from the net

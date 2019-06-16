@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results</title>
+    <link href="../static/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/styles/bootstrap-imageupload.min.css" rel="stylesheet">
+    <script src="../static/js/jquery.min.js"></script>
+</head>
+<body>
+    <!-- <h3 style="padding:20px;text-align:center">Results</h3> -->
+   
+
+    <div class="row">
+        <div class="col-md-12"><!-- Added containing column definition -->
+            <div class="panel panel-default">
+                <div class="panel-heading">Results</div>
+                <div class="panel-body">
+                    
+
+                        <div class="panel panel-default">
+                                
+                            <!-- Default panel contents 1 -->
+                            <div class="panel-heading">{{auth_var}}</div>
+                            <div class="panel-body">
+                                    {% for key,values in auth_data.items() %}
+                                    <label>{{key}} : {{values}}</label><br>
+                                    {% endfor %} 
+                            </div>
+                            
+                        </div>
+    
+                   
+                
+                    <div class="panel panel-default">
+                            {% for j in v_data %}
+                        <!-- Default panel contents 1 -->
+                        <div class="panel-heading">{{list_i[loop.index-1]}}</div>
+                        <div class="panel-body">
+                             
+                                <label>{{j[1:-1]}}</label><br>
+                            
+                        </div>
+                        {% endfor %} 
+                    </div>
+                
+                  
+                </div> <!-- Missing div here -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap-imageupload.js"></script>
+</body>
+</html>

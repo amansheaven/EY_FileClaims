@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{title}}</title>
+    <link href="../static/styles/bootstrap.min.css" rel="stylesheet">
+    <style>
+      #output{
+        font-weight: bold;
+        border:3px solid green;
+        padding: 5px;
+        text-align: center;
+      }
+      div#loading { 
+                margin: auto;
+                position: absolute;
+                z-index: 1000;
+                width: 100%;
+                height: 100%;
+                background: url(/static/images/ajax-loader.gif) no-repeat;
+                cursor: wait;
+                display: none;
+                background-position: center; 
+            }
+      #proceed{
+        display: block;
+        margin: 10px;
+      }
+
+    </style>
+    <script>
+        function boxcheck(){
+          var element = document.getElementById('output');
+          if(element.innerHTML == 'CANNOT DETECT PLATE'){
+            element.style.borderColor = "red";
+          }
+          else{
+            document.getElementById('lisno').value=element.innerHTML;
+          }
+        }
+        function loading(){
+            
+            $("#loading").show();
+            $(".container").hide();
+                    
+        }
+    </script>
+</head>
+<body onload="boxcheck()">
+    <div id="loading">
+        <div id="textcont">
+        <h4 style="text-align: center">This may take a while, please dont refresh the page while the system loads.
+        </h4>
+        <h5 style="color: lightblue;text-align: center">If this crashes or hangs the whole system please use the predefined image from the predefined folder to access the system.
+        </h5>
+        </div>
+    </div>
+    <div class="container" style="padding-left:1px; padding-top:5px;padding-right:1px">
+      <h2 style="text-align:center">{{title}}</h2>
+      <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <!-- Left column panels -->
+              <div class="panel panel-info">
+                    <div class="panel-heading">Countoured Image</div>
+                    <div class="panel-body">
+                        <img class="img-responsive" src="{{ im_path }}" class="img-rounded" id="Panel_Image">
+                    </div>
+                    <div class="panel-footer">Path : {{im_path}}</div>
+                </div>
+            </div>
+          
+            
+            <div class="col-xs-6 col-sm-6">
+              <!-- Right column panels -->
+              <div class="panel panel-success">
+                    <div class="panel-heading">Predicted Result</div>
+                    <div class="panel-body">
+                        
+                        <div id="override">
+                          <form method="post" enctype = "multipart/form-data" action="{{outlink}}">
+                            <div class="form-group">
+                              {% for key, value in dic.items() %}
+                                <label for="usr">{{key}}</label>
+                                <input type="text" class="form-control" name="{{key}}" value="{{value}}">
+                              {% endfor %}
+                                <label class="btn btn-success" id='proceed'>
+                                    Submit<input type=submit value=Upload hidden onclick="loading()">
+                                </label>
+                            </div>
+                            
+                            </form>
+                        </div>
+                    </div>
+            </div>
+            
+          </div>
+
+
+          <div class="col-xs-6 col-sm-6">
+            <!-- Right column panels -->
+            <div class="panel panel-success">
+                  <div class="panel-heading">Raw Text Corpus</div>
+                   <div class="panel-body">
+                    <textarea class="form-control" rows="10" id="comment">
+                        {{text}}
+                    </textarea>
+                    </div>
+                  </div>
+          </div>
+
+            
+          </div>
+
+    </div>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>

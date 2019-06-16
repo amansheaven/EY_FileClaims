@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+        <link href="../static/styles/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/styles/bootstrap-imageupload.min.css" rel="stylesheet">
+        <script src="../static/js/jquery.min.js"></script>
+        <style>
+            /* body {
+                /* padding-top: 70px; */
+            /*} */
+
+            .imageupload {
+                margin: 20px 0;
+            }
+            div#loading { 
+                margin: auto;
+                position: absolute;
+                z-index: 1000;
+                width: 100%;
+                height: 100%;
+                background: url(/static/images/ajax-loader.gif) no-repeat;
+                cursor: wait;
+                display: none;
+                background-position: center; 
+            }
+            div#textcont{
+                padding: 50px;
+            }
+        </style>
+        <script type="text/javascript">// <![CDATA[
+            function loading(){
+                
+                $("#loading").show();
+                $(".container").hide();
+                        
+            }
+    // ]]></script>
+</head>
+
+<body>
+        <div id="loading">
+            <div id="textcont">
+            <h4 style="text-align: center">This may take a while, please dont refresh the page while the system loads.
+            </h4>
+            <h5 style="color: lightblue;text-align: center">If this crashes or hangs the whole system please use the predefined image from the predefined folder to access the system.
+            </h5>
+            </div>
+        </div>
+        <!-- <span class="glyphicon glyphicon-refresh spinning"></span> Loading...  -->
+        <div class="container" id='contmain'>
+
+            <h3 style="padding:20px;text-align:center">Please add approprite files by selecting browse : </h3>
+
+            <!-- bootstrap-imageupload. -->
+            <div class="imageupload panel panel-default">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left">Select Vehicle Image</h3>
+                </div>
+                <div class="file-tab panel-body">
+                    <form method="post" enctype = "multipart/form-data" action="/report_detect">
+                    <label class="btn btn-primary btn-file">
+                        <span>Browse</span>
+                        <!-- The file is stored here. -->
+                        <input type="file" name="car-file">
+                    </label>
+                    <button type="button" class="btn btn-danger">Delete image</button>
+                </div>
+            </div>
+            <!-- </form> -->
+
+            <!-- Dl upload panel -->
+
+            <div class="imageupload panel panel-default">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left">Select Driving License Image</h3>
+                </div>
+                <div class="file-tab panel-body">
+                    <label class="btn btn-primary btn-file">
+                        <span>Browse</span>
+                        <!-- The file is stored here. -->
+                        <input type="file" name="dl-file">
+                    </label>
+                    <button type="button" class="btn btn-danger">Delete image</button>
+                </div>
+            </div>
+
+            <!-- surveyor report -->
+
+            <div class="imageupload panel panel-default">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left">Select Surveyor Report Image</h3>
+                </div>
+                <div class="file-tab panel-body">
+                    <label class="btn btn-primary btn-file">
+                        <span>Browse</span>
+                        <!-- The file is stored here. -->
+                        <input type="file" name="report-file">
+                    </label>
+                    <button type="button" class="btn btn-danger">Delete image</button>
+                </div>
+            </div>
+            
+            <!-- RC upload -->
+            
+            <div class="imageupload panel panel-default">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left">Select Registration Certificate Image</h3>
+                </div>
+                <div class="file-tab panel-body">
+                    <label class="btn btn-primary btn-file">
+                        <span>Browse</span>
+                        <!-- The file is stored here. -->
+                        <input type="file" name="rc-file">
+                    </label>
+                    <button type="button" class="btn btn-danger">Delete image</button>
+                </div>
+            </div>
+
+            <!-- Pan Card File -->
+
+            <div class="imageupload panel panel-default">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left">Select PAN Card Image</h3>
+                </div>
+                <div class="file-tab panel-body">
+                    <label class="btn btn-primary btn-file">
+                        <span>Browse</span>
+                        <!-- The file is stored here. -->
+                        <input type="file" name="pan-file">
+                    </label>
+                    <button type="button" class="btn btn-danger">Delete image</button>
+                </div>
+            </div>
+
+            <!-- manufaturer patch upload -->
+
+            <div class="imageupload panel panel-default">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left">Select Car Patch Image</h3>
+                </div>
+                <div class="file-tab panel-body">
+                    <label class="btn btn-primary btn-file">
+                        <span>Browse</span>
+                        <!-- The file is stored here. -->
+                        <input type="file" name="patch-file">
+                    </label>
+                    <button type="button" class="btn btn-danger">Delete image</button>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+
+            <label class="btn btn-success">
+                Submit<input type=submit value=Upload hidden onclick="loading()">
+            </label>
+
+        </form>
+
+
+
+
+        </div>
+
+        
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/bootstrap-imageupload.js"></script>
+
+        <script>
+            var $imageupload = $('.imageupload');
+            $imageupload.imageupload();
+        </script>
+</body>
+</html>
+
