@@ -1,19 +1,12 @@
-scikit-learn
 keras
-tensorflow
-iamgeio
-lxml
+imageio
 numpy
 Pillow
 protobuf
-pytesseract
-python-Levenshtein
 regex
 requests
-scipy
-sklearn
-spacy
-fuzzysearch
-imutils
-opencv-python
+scikit-learn
+tensorflow=*=mkl*
+flask
+numpy
 
